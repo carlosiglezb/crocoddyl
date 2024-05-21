@@ -121,6 +121,11 @@ template <typename Scalar>
 struct ResidualDataControlGravTpl;
 
 template <typename Scalar>
+class ResidualModelCoupledJointVelocityTpl;
+template <typename Scalar>
+struct ResidualDataCoupledJointVelocityTpl;
+
+template <typename Scalar>
 class ResidualModelFramePlacementTpl;
 template <typename Scalar>
 struct ResidualDataFramePlacementTpl;
@@ -319,6 +324,10 @@ typedef ResidualModelContactControlGravTpl<double>
     ResidualModelContactControlGrav;
 typedef ResidualDataContactControlGravTpl<double>
     ResidualDataContactControlGrav;
+typedef ResidualModelCoupledJointVelocityTpl<double>
+    ResidualModelCoupledJointVelocity;
+typedef ResidualDataCoupledJointVelocityTpl<double>
+    ResidualDataCoupledJointVelocity;
 typedef ResidualModelControlGravTpl<double> ResidualModelControlGrav;
 typedef ResidualDataControlGravTpl<double> ResidualDataControlGrav;
 typedef ResidualModelFramePlacementTpl<double> ResidualModelFramePlacement;

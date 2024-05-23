@@ -22,16 +22,14 @@ void exposeResidualCoupledJointVelocity() {
       "This residual function defines qdot(idx1) = qdot(idx2), with qdot being"
       "the joint velocity and idxi being the index of the joints being \n"
       "coupled (connected), respectively.",
-      bp::init<boost::shared_ptr<StateMultibody>, std::size_t,
-               pinocchio::Motion, pinocchio::ReferenceFrame, std::size_t>(
+      bp::init<boost::shared_ptr<StateMultibody>, std::vector<std::size_t>>(
           bp::args("self", "state", "ids", "nu"),
           "Initialize the frame velocity residual model.\n\n"
           ":param state: state of the multibody system\n"
           ":param residual: residual model\n"
           ":param ids: reference frame ids\n"
           ":param nu: dimension of control vector"))
-      .def(bp::init<boost::shared_ptr<StateMultibody>, pinocchio::FrameIndex,
-                    pinocchio::Motion, pinocchio::ReferenceFrame>(
+      .def(bp::init<boost::shared_ptr<StateMultibody>, std::vector<pinocchio::FrameIndex>>(
           bp::args("self", "state", "ids"),
           "Initialize the frame velocity residual model.\n\n"
           ":param state: state of the multibody system\n"

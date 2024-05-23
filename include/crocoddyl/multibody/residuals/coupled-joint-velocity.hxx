@@ -63,9 +63,9 @@ void ResidualModelCoupledJointVelocityTpl<Scalar>::calc(
   Data* d = static_cast<Data*>(data.get());
 
   // Compute the coupled joint velocity difference
-  auto v1 = *d->pinocchio->v[coupled_j_id_[0]];
-  auto v2 = *d->pinocchio->v[coupled_j_id_[1]];
-  data->r = v1 - v2;
+  auto v1 = 0.;   //*d->pinocchio->v[coupled_j_id_[0]];
+  auto v2 = 0.;   //*d->pinocchio->v[coupled_j_id_[1]];
+  data->r[0] = v1 - v2;
 }
 
 template <typename Scalar>
@@ -75,8 +75,8 @@ void ResidualModelCoupledJointVelocityTpl<Scalar>::calcDiff(
   // Get the partial derivatives of the local frame velocity
   Data* d = static_cast<Data*>(data.get());
   const std::size_t nv = state_->get_nv();
-  data->Rx[0, coupled_j_id_[0] - 1] = 1;
-  data->Rx[1, coupled_j_id_[1] - 1] = -1;
+  data->Rx(0, coupled_j_id_[0] - 1) = 1;
+  data->Rx(1, coupled_j_id_[1] - 1) = -1;
 }
 
 template <typename Scalar>
